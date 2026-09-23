@@ -102,7 +102,6 @@
 
                 <!-- Desktop Navigation Links -->
                 <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="#specs" class="text-slate-300 hover:text-white transition-colors py-1 hover:border-b-2 hover:border-white">Technical Specs</a>
                     <a href="#calculator" class="text-slate-300 hover:text-white transition-colors py-1 hover:border-b-2 hover:border-white">Spec Calculator</a>
                     <a href="#gallery" class="text-slate-300 hover:text-white transition-colors py-1 hover:border-b-2 hover:border-white">Architectural Gallery</a>
                     <a href="#contact" class="text-slate-300 hover:text-white transition-colors py-1 hover:border-b-2 hover:border-white">Contact</a>
@@ -126,7 +125,6 @@
 
         <!-- Mobile Dropdown Menu -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-slate-900 px-4 pt-3 pb-6 space-y-3 font-mono text-sm">
-            <a href="#specs" class="block text-slate-300 hover:text-white py-2">Technical Specs</a>
             <a href="#calculator" class="block text-slate-300 hover:text-white py-2">Spec Calculator</a>
             <a href="#gallery" class="block text-slate-300 hover:text-white py-2">Architectural Gallery</a>
             <a href="#contact" class="block text-slate-300 hover:text-white py-2">Contact</a>
@@ -179,8 +177,8 @@
                             <a href="#calculator" class="inline-flex justify-center items-center px-6 py-3.5 border border-slate-900 text-sm font-semibold rounded-md text-white bg-slate-900 hover:bg-slate-800 transition-all shadow-md">
                                 <i class="fa-solid fa-sliders mr-2"></i> Configure Specification
                             </a>
-                            <a href="#specs" class="inline-flex justify-center items-center px-6 py-3.5 border border-slate-300 text-sm font-semibold rounded-md text-slate-800 bg-white hover:bg-slate-100 transition-all shadow-sm">
-                                <i class="fa-solid fa-compass-drafting mr-2 text-slate-500"></i> Technical Specs
+                            <a href="#contact" class="inline-flex justify-center items-center px-6 py-3.5 border border-slate-300 text-sm font-semibold rounded-md text-slate-800 bg-white hover:bg-slate-100 transition-all shadow-sm">
+                                <i class="fa-solid fa-envelope mr-2 text-slate-500"></i> Request Technical CAD
                             </a>
                         </div>
                     </div>
@@ -226,70 +224,6 @@
                     </div>
 
                 </div>
-            </div>
-        </section>
-
-        <!-- Technical Specifications Table Section -->
-        <section id="specs" class="py-20 border-b border-slate-200 bg-white/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                    <div>
-                        <h2 class="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase mb-2">ENGINEERING SPECS</h2>
-                        <p class="text-3xl font-extrabold text-slate-900">Technical Matrix & Performance</p>
-                    </div>
-                    <p class="text-sm font-mono text-slate-500 mt-2 md:mt-0">Compliance: BS EN 1279 / BS 6375 / Building Regs Part L Compliant</p>
-                </div>
-
-                <div class="overflow-x-auto bg-white rounded-xl border border-slate-200 shadow-sm">
-                    <table class="w-full text-left font-sans text-sm">
-                        <thead class="bg-slate-900 text-white font-mono text-xs uppercase tracking-wider">
-                            <tr>
-                                <th class="p-4 border-b border-slate-800">Feature Parameter</th>
-                                <th class="p-4 border-b border-slate-800">Standard Double Glazed</th>
-                                <th class="p-4 border-b border-slate-800">Triple Acoustic Spec</th>
-                                <th class="p-4 border-b border-slate-800">Walk-On Decking Spec</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-200 font-mono text-xs">
-                            <tr class="hover:bg-slate-50">
-                                <td class="p-4 font-semibold text-slate-900 font-sans">Glass Composition</td>
-                                <td class="p-4 text-slate-600">6mm Toughened / 16mm Argon / 6mm Low-E</td>
-                                <td class="p-4 text-slate-600">6mm Toughened / 14mm / 4mm / 14mm / 6.4 Laminated</td>
-                                <td class="p-4 text-slate-600">33mm Laminated Outer / 16mm / 6mm Low-E</td>
-                            </tr>
-                            <tr class="hover:bg-slate-50">
-                                <td class="p-4 font-semibold text-slate-900 font-sans">Center-Pane U-Value ($U_g$)</td>
-                                <td class="p-4 text-slate-900 font-bold">1.0 W/m²K</td>
-                                <td class="p-4 text-slate-900 font-bold">0.6 W/m²K</td>
-                                <td class="p-4 text-slate-900 font-bold">1.1 W/m²K</td>
-                            </tr>
-                            <tr class="hover:bg-slate-50">
-                                <td class="p-4 font-semibold text-slate-900 font-sans">Light Transmittance ($L_t$)</td>
-                                <td class="p-4 text-slate-600">78%</td>
-                                <td class="p-4 text-slate-600">71%</td>
-                                <td class="p-4 text-slate-600">65%</td>
-                            </tr>
-                            <tr class="hover:bg-slate-50">
-                                <td class="p-4 font-semibold text-slate-900 font-sans">Solar Heat Gain ($g$-value)</td>
-                                <td class="p-4 text-slate-600">0.52</td>
-                                <td class="p-4 text-slate-600">0.38 (Solar Control)</td>
-                                <td class="p-4 text-slate-600">0.45</td>
-                            </tr>
-                            <tr class="hover:bg-slate-50">
-                                <td class="p-4 font-semibold text-slate-900 font-sans">Acoustic Insulation ($R_w$)</td>
-                                <td class="p-4 text-slate-600">35 dB</td>
-                                <td class="p-4 text-slate-600">42 dB</td>
-                                <td class="p-4 text-slate-600">45 dB</td>
-                            </tr>
-                            <tr class="hover:bg-slate-50">
-                                <td class="p-4 font-semibold text-slate-900 font-sans">Standard Frame Coating</td>
-                                <td class="p-4 text-slate-600" colspan="3">RAL 7016 Anthracite Grey Powder Coated Marine Grade Aluminum</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
             </div>
         </section>
 
