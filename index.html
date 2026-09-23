@@ -60,6 +60,16 @@
             background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
         }
 
+        /* Scroll-driven Video Banner Morphing */
+        #video-hero-container {
+            height: 85vh;
+            transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #video-hero-container.shrunk {
+            height: 280px;
+        }
+
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -127,85 +137,39 @@
     </header>
 
     <main class="flex-grow">
-        <!-- Hero Section -->
-        <section class="relative py-20 lg:py-28 overflow-hidden border-b border-slate-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-7 space-y-6">
-                        <div class="inline-flex items-center px-3 py-1.5 rounded border border-slate-300 bg-white shadow-sm font-mono text-xs text-slate-600">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
-                            ARCHITECTURAL SPECIFICATION STANDARD V2.4
-                        </div>
+        <!-- Interactive Collapsible Video Hero Banner -->
+        <section id="video-hero-container" class="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800 shadow-2xl transition-all duration-500 ease-in-out">
+            <!-- Background Video -->
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-60 filter brightness-90">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-architecture-building-under-a-blue-sky-41528-large.mp4" type="video/mp4">
+            </video>
 
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                            Precision Engineered <br>
-                            <span class="text-slate-600">Rooflights & Skylights</span>
-                        </h1>
+            <!-- Gradient Overlay for Legibility -->
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/60"></div>
 
-                        <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
-                            Delivering frameless visual clarity, structural integrity, and industry-leading thermal efficiency ($U = 0.6 \text{ W/m}^2\text{K}$) for high-end residential and commercial architecture.
-                        </p>
-
-                        <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg font-mono text-xs">
-                            <div class="bg-white p-3 rounded border border-slate-200 shadow-sm text-center">
-                                <span class="block text-slate-400 text-[10px] uppercase tracking-wider">U-Value Down To</span>
-                                <span class="text-slate-900 font-bold text-base">0.6 W/m²K</span>
-                            </div>
-                            <div class="bg-white p-3 rounded border border-slate-200 shadow-sm text-center">
-                                <span class="block text-slate-400 text-[10px] uppercase tracking-wider">Warranty</span>
-                                <span class="text-slate-900 font-bold text-base">20 Years</span>
-                            </div>
-                            <div class="bg-white p-3 rounded border border-slate-200 shadow-sm text-center">
-                                <span class="block text-slate-400 text-[10px] uppercase tracking-wider">Acoustic Rating</span>
-                                <span class="text-slate-900 font-bold text-base">Up to 42dB</span>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                            <a href="#calculator" class="inline-flex justify-center items-center px-6 py-3.5 border border-slate-900 text-sm font-semibold rounded-md text-white bg-slate-900 hover:bg-slate-800 transition-all shadow-md">
-                                <i class="fa-solid fa-sliders mr-2"></i> Configure Specification
-                            </a>
-                            <a href="#contact" class="inline-flex justify-center items-center px-6 py-3.5 border border-slate-300 text-sm font-semibold rounded-md text-slate-800 bg-white hover:bg-slate-100 transition-all shadow-sm">
-                                <i class="fa-solid fa-envelope mr-2 text-slate-500"></i> Request Technical CAD
-                            </a>
-                        </div>
+            <!-- Content Container -->
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-between py-12">
+                <div class="pt-6">
+                    <div class="inline-flex items-center px-3 py-1.5 rounded border border-slate-700 bg-slate-900/80 backdrop-blur-md shadow-sm font-mono text-xs text-slate-300">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+                        ARCHITECTURAL SPECIFICATION STANDARD V2.4
                     </div>
+                </div>
 
-                    <div class="lg:col-span-5">
-                        <div class="relative bg-slate-900 rounded-xl p-6 shadow-2xl border border-slate-800 blueprint-dark-bg text-white">
-                            <div class="flex justify-between items-center border-b border-slate-800 pb-3 mb-6 font-mono text-xs text-slate-400">
-                                <span><i class="fa-solid fa-layer-group text-slate-400 mr-1.5"></i> CAD_SPEC_MODEL_RL-90</span>
-                                <span class="text-emerald-400 font-semibold">100% WATERPROOF PASS</span>
-                            </div>
+                <div class="max-w-3xl space-y-4">
+                    <h1 id="hero-title" class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight transition-all duration-300">
+                        Precision Engineered <br>
+                        <span class="text-slate-300">Rooflights & Skylights</span>
+                    </h1>
+                    <p id="hero-subtext" class="text-base sm:text-lg text-slate-300 max-w-2xl transition-opacity duration-300">
+                        Frameless visual clarity, structural strength, and thermal perfection for high-end architectural projects.
+                    </p>
+                </div>
 
-                            <div class="relative h-64 sm:h-80 flex items-center justify-center border border-dashed border-slate-700/60 rounded-lg p-4 bg-slate-950/40">
-                                <svg class="w-full h-full max-h-52 text-white fill-current opacity-90 drop-shadow-[0_0_12px_rgba(255,255,255,0.2)]" viewBox="0 0 600 280">
-                                    <polygon points="120,116 230,116 170,16 60,16" />
-                                    <polygon points="200,116 310,116 250,16 140,16" />
-                                    <polygon points="280,116 390,116 330,16 220,16" />
-                                    <polygon points="360,116 470,116 410,16 300,16" />
-                                    <polygon points="468,48 420,116 380,116 428,48" />
-                                    <polygon points="468,48 586,250 520,250 430,96" />
-                                    <polygon points="12,128 122,128 222,250 112,250" />
-                                    <polygon points="92,128 202,128 302,250 192,250" />
-                                    <polygon points="172,128 282,128 382,250 272,250" />
-                                    <polygon points="252,128 362,128 462,250 352,250" />
-                                </svg>
-
-                                <div class="absolute top-2 left-4 text-[10px] font-mono text-slate-400 border-l border-b border-slate-600 pl-2 pb-1">
-                                    SPAN: 1200mm - 4000mm
-                                </div>
-                                <div class="absolute bottom-2 right-4 text-[10px] font-mono text-slate-400 border-r border-t border-slate-600 pr-2 pt-1">
-                                    PITCH: 5° - 45°
-                                </div>
-                            </div>
-
-                            <div class="mt-4 pt-3 border-t border-slate-800 flex justify-between font-mono text-[11px] text-slate-400">
-                                <div>STRUCTURAL: Toughened Outer</div>
-                                <div>FRAME: RAL 7016 Slate</div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Scroll Prompt Indicator -->
+                <div id="scroll-prompt" class="flex items-center space-x-3 text-slate-400 font-mono text-xs animate-bounce">
+                    <i class="fa-solid fa-arrow-down-long text-white"></i>
+                    <span>Scroll down to explore specifications & quote calculator</span>
                 </div>
             </div>
         </section>
@@ -247,7 +211,7 @@
             </div>
         </section>
 
-        <!-- Interactive Configurator (Positioned directly above Get In Touch) -->
+        <!-- Interactive Configurator -->
         <section id="calculator" class="py-20 bg-slate-900 text-white blueprint-dark-bg border-b border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
@@ -444,6 +408,32 @@
 
     <!-- JavaScript Logic -->
     <script>
+        // Scroll interaction for shrinking video banner
+        const videoHero = document.getElementById('video-hero-container');
+        const heroTitle = document.getElementById('hero-title');
+        const heroSubtext = document.getElementById('hero-subtext');
+        const scrollPrompt = document.getElementById('scroll-prompt');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                videoHero.classList.add('shrunk');
+                if (heroSubtext) heroSubtext.classList.add('opacity-0', 'hidden');
+                if (scrollPrompt) scrollPrompt.classList.add('opacity-0', 'hidden');
+                if (heroTitle) {
+                    heroTitle.classList.remove('text-4xl', 'sm:text-6xl');
+                    heroTitle.classList.add('text-2xl', 'sm:text-3xl');
+                }
+            } else {
+                videoHero.classList.remove('shrunk');
+                if (heroSubtext) heroSubtext.classList.remove('opacity-0', 'hidden');
+                if (scrollPrompt) scrollPrompt.classList.remove('opacity-0', 'hidden');
+                if (heroTitle) {
+                    heroTitle.classList.remove('text-2xl', 'sm:text-3xl');
+                    heroTitle.classList.add('text-4xl', 'sm:text-6xl');
+                }
+            }
+        });
+
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileBtn && mobileMenu) {
