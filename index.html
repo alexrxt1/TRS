@@ -405,10 +405,13 @@
         </section>
     </main>
 
+    <!-- Updated Footer -->
     <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 font-mono text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div>
-                © 2026 The Rooflight Specialists. All Rights Reserved.
+            <div class="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-4 text-center md:text-left">
+                <span>© 2026 The Rooflight Specialists. All Rights Reserved.</span>
+                <span class="hidden sm:inline text-slate-700">|</span>
+                <span class="text-cyan-400">Site by ARX. Email: <a href="mailto:website@arx-uk.com" class="underline hover:text-cyan-300 transition-colors">website@arx-uk.com</a></span>
             </div>
             <div class="flex space-x-6">
                 <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
@@ -564,7 +567,7 @@
             });
         }
 
-        // Smooth scroll to Configurator
+        // Smooth scroll targeting #calculator for all instant quote buttons
         document.querySelectorAll('a[href="#calculator"]').forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
