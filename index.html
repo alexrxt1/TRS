@@ -162,7 +162,7 @@
 
             <div class="absolute top-4 right-6 font-mono text-[10px] text-cyan-400/60 hidden sm:block pointer-events-none space-y-1 text-right">
                 <div>MODEL: ROOFLIGHT_LANTERN_3D</div>
-                <div>RENDER_ENGINE: ISOMETRIC_PERSPECTIVE</div>
+                <div>RENDER_ENGINE: ORTHOGRAPHIC_ISOMETRIC</div>
                 <div>FRAME_RATE: 60FPS STABLE</div>
             </div>
 
@@ -181,7 +181,7 @@
                         <span class="text-cyan-400">Rooflights & Skylights</span>
                     </h1>
                     <p id="hero-subtext" class="text-base sm:text-lg text-slate-300 max-w-2xl transition-opacity duration-300 drop-shadow">
-                        Frameless visual clarity, structural integrity, and thermal perfection ($U = 0.6 \text{ W/m}^2\text{K}$) for high-end architectural builds.
+                        Frameless visual clarity, structural integrity, and thermal perfection for high-end architectural builds.
                     </p>
                 </div>
 
@@ -469,9 +469,9 @@
         resizeCanvas();
 
         let angleY = 0.4;
-        const pitchX = 0.45; // Fixed pitch down to view top skylight glass structure cleanly
+        const pitchX = 0.42; // Fixed pitch down angle for clear roof light perspective
 
-        // Architectural Rooflight Lantern Geometry (Base Frame, Kerb, Rafter Hip Beams, Apex Ridge)
+        // Rigid Architectural Rooflight Lantern Geometry
         const vertices = [
             // Outer Base Upstand Kerb (Bottom Frame) [0..3]
             {x: -1.8, y: -0.6, z: -1.1},
@@ -521,19 +521,16 @@
             // Pitch Rotation (X-axis tilt)
             const cosX = Math.cos(pitchX), sinX = Math.sin(pitchX);
             const y2 = v.y * cosX - z1 * sinX;
-            const z2 = z1 * cosX + v.y * sinX;
 
-            // Camera offset & Perspective calculation without severe distortion
-            const fov = 380;
-            const distance = 4.2;
-            const scale = fov / (distance + z2);
+            // Orthographic / Parallel projection to prevent depth warping/trapezoidal stretching
+            const scale = 72;
 
             // Center and shift slightly right on desktop
-            const offsetX = width > 768 ? width * 0.12 : 0;
+            const offsetX = width > 768 ? width * 0.14 : 0;
             const projX = (width / 2) + x1 * scale + offsetX;
             const projY = (height / 2) - y2 * scale;
 
-            return { x: projX, y: projY, z: z2 };
+            return { x: projX, y: projY };
         }
 
         function drawBlueprint() {
@@ -544,7 +541,7 @@
             const w = canvas.width;
             const h = canvas.height;
 
-            angleY += 0.005; // Smooth slow rotation
+            angleY += 0.005; // Smooth slow turntable rotation
 
             const projected = vertices.map(v => project3D(v, w, h));
 
