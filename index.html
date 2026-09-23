@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Rooflight Specialists | Architectural Glazing & Skylights</title>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -62,14 +63,14 @@
 
         /* Hero Container & Canvas Rules */
         #hero-container {
-            min-height: 500px;
+            min-height: 520px;
             height: 85vh;
             transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         #hero-container.shrunk {
-            height: 280px;
-            min-height: 280px;
+            height: 290px;
+            min-height: 290px;
         }
 
         #blueprint-canvas {
@@ -83,14 +84,14 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f5f9;
+            background: #0f172a;
         }
         ::-webkit-scrollbar-thumb {
-            background: #94a3b8;
+            background: #334155;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #64748b;
+            background: #0284c7;
         }
     </style>
 </head>
@@ -100,8 +101,9 @@
     <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
                 <a href="#" class="flex items-center space-x-3 group">
-                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700 shadow-inner group-hover:border-slate-500 transition-colors flex items-center justify-center overflow-hidden">
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700 shadow-inner group-hover:border-cyan-500 transition-colors flex items-center justify-center overflow-hidden">
                         <img 
                             src="TRS.jpg" 
                             alt="The Rooflight Specialists Logo" 
@@ -111,16 +113,20 @@
                     </div>
                     <div class="flex flex-col">
                         <span class="font-bold text-lg tracking-wider text-white uppercase font-sans">The Rooflight</span>
-                        <span class="text-xs tracking-widest text-slate-400 font-mono font-medium uppercase">Specialists</span>
+                        <span class="text-xs tracking-widest text-cyan-400 font-mono font-medium uppercase">Specialists</span>
                     </div>
                 </a>
 
+                <!-- Desktop Nav Menu -->
                 <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#calculator" class="btn-quote text-cyan-300 font-semibold hover:text-white transition-colors py-1 hover:border-b-2 hover:border-cyan-400 flex items-center gap-1.5">
+                        <i class="fa-solid fa-sliders text-cyan-400 text-xs"></i> Spec Configurator
+                    </a>
                     <a href="#gallery" class="text-slate-300 hover:text-white transition-colors py-1 hover:border-b-2 hover:border-white">Architectural Gallery</a>
-                    <a href="#calculator" class="text-slate-300 hover:text-white transition-colors py-1 hover:border-b-2 hover:border-white">Spec Calculator</a>
                     <a href="#contact" class="text-slate-300 hover:text-white transition-colors py-1 hover:border-b-2 hover:border-white">Contact</a>
                 </nav>
 
+                <!-- Desktop Action Buttons -->
                 <div class="hidden sm:flex items-center space-x-3">
                     <a href="https://wa.me/447347262213" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2.5 border border-emerald-500/40 text-xs font-mono font-semibold rounded-md text-emerald-400 bg-emerald-950/40 hover:bg-emerald-900/60 transition-all shadow-sm">
                         <i class="fa-brands fa-whatsapp text-emerald-400 mr-2 text-sm"></i> WhatsApp
@@ -160,15 +166,16 @@
             <!-- Technical Blueprint Overlay Graphics -->
             <div class="absolute inset-0 bg-gradient-to-t from-[#0b1329] via-transparent to-[#0b1329]/80 pointer-events-none"></div>
 
-            <div class="absolute top-4 right-6 font-mono text-[10px] text-cyan-400/60 hidden sm:block pointer-events-none space-y-1 text-right">
+            <div class="absolute top-4 right-6 font-mono text-[10px] text-cyan-400/70 hidden sm:block pointer-events-none space-y-1 text-right">
                 <div>MODEL: ROOFLIGHT_LANTERN_3D</div>
-                <div>RENDER_ENGINE: ORTHOGRAPHIC_ISOMETRIC</div>
-                <div>FRAME_RATE: 60FPS STABLE</div>
+                <div>PROJECTION: ISOMETRIC_PERSPECTIVE</div>
+                <div>THERMAL_RATING: U = 0.6 W/m²K</div>
+                <div>STATUS: RIGID_3D_TRANSFORM_ACTIVE</div>
             </div>
 
             <!-- Content Container -->
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-between py-12 pointer-events-auto">
-                <div class="pt-4">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-between py-10 pointer-events-auto">
+                <div class="pt-2">
                     <div class="inline-flex items-center px-3 py-1.5 rounded border border-cyan-500/30 bg-slate-900/80 backdrop-blur-md shadow-sm font-mono text-xs text-cyan-300">
                         <span class="w-2 h-2 rounded-full bg-cyan-400 mr-2 animate-ping"></span>
                         LIVE 3D CAD MODEL SPECIFICATION
@@ -181,156 +188,166 @@
                         <span class="text-cyan-400">Rooflights & Skylights</span>
                     </h1>
                     <p id="hero-subtext" class="text-base sm:text-lg text-slate-300 max-w-2xl transition-opacity duration-300 drop-shadow">
-                        Frameless visual clarity, structural integrity, and thermal perfection for high-end architectural builds.
+                        Frameless visual clarity, structural integrity, and thermal perfection ($U = 0.6 \text{ W/m}^2\text{K}$) for high-end architectural builds.
                     </p>
+
+                    <div id="hero-cta-buttons" class="pt-2 flex flex-wrap gap-4 transition-opacity duration-300">
+                        <!-- Hero primary CTA button strictly targeting #calculator -->
+                        <a href="#calculator" class="btn-quote inline-flex items-center px-6 py-3.5 rounded-lg text-sm font-mono font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 border border-cyan-300 shadow-lg shadow-cyan-500/20 transition-all transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-calculator mr-2 text-slate-950"></i> BUILD INSTANT QUOTE
+                        </a>
+                        <a href="#calculator" class="btn-quote inline-flex items-center px-6 py-3.5 rounded-lg text-sm font-mono font-semibold text-slate-200 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 backdrop-blur-md transition-all">
+                            <i class="fa-solid fa-sliders mr-2 text-cyan-400"></i> CONFIGURATOR
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Scroll Prompt Indicator -->
-                <div id="scroll-prompt" class="flex items-center space-x-3 text-cyan-400 font-mono text-xs animate-bounce">
+                <div id="scroll-prompt" class="flex items-center space-x-3 text-cyan-400 font-mono text-xs animate-bounce pb-2">
                     <i class="fa-solid fa-arrow-down-long text-cyan-300"></i>
-                    <span>Scroll down to explore gallery & quote calculator</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery" class="py-20 border-b border-slate-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase mb-2">PORTFOLIO</h2>
-                    <p class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Architectural Inspirations</p>
-                    <p class="mt-4 text-slate-600">Explore real-world structural glazing installations across residential and commercial developments.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="group relative overflow-hidden rounded-xl bg-slate-900 aspect-video shadow-md">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Modern Kitchen Extension Skylight" class="object-cover w-full h-full opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent p-6 flex flex-col justify-end">
-                            <span class="text-xs font-mono text-slate-300">RESIDENTIAL EXTENSION</span>
-                            <h4 class="text-lg font-bold text-white">Contemporary Kitchen Skylight</h4>
-                        </div>
-                    </div>
-
-                    <div class="group relative overflow-hidden rounded-xl bg-slate-900 aspect-video shadow-md">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Frameless Roof Lantern Living Area" class="object-cover w-full h-full opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent p-6 flex flex-col justify-end">
-                            <span class="text-xs font-mono text-slate-300">OPEN PLAN LIVING</span>
-                            <h4 class="text-lg font-bold text-white">Frameless Roof Lantern</h4>
-                        </div>
-                    </div>
-
-                    <div class="group relative overflow-hidden rounded-xl bg-slate-900 aspect-video shadow-md">
-                        <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80" alt="Walk-On Roof Terrace Glass" class="object-cover w-full h-full opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent p-6 flex flex-col justify-end">
-                            <span class="text-xs font-mono text-slate-300">URBAN PODIUM DECK</span>
-                            <h4 class="text-lg font-bold text-white">Walk-On Terrace Glazing</h4>
-                        </div>
-                    </div>
+                    <span>Scroll down to launch interactive spec calculator</span>
                 </div>
             </div>
         </section>
 
         <!-- Configurator / Calculator Section -->
-        <section id="calculator" class="py-20 bg-slate-900 text-white blueprint-dark-bg border-b border-slate-800">
+        <section id="calculator" class="py-20 bg-slate-900 text-white blueprint-dark-bg border-b border-slate-800 scroll-mt-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-xs font-mono font-bold tracking-widest text-slate-400 uppercase">INTERACTIVE CALCULATOR</span>
-                    <h2 class="text-3xl font-extrabold sm:text-4xl text-white mt-2">Custom Specification & Quote Builder</h2>
-                    <p class="mt-3 text-slate-400">Select your custom dimensions and thermal preferences for instant real-time estimation.</p>
+                    <div class="inline-block px-3 py-1 bg-cyan-950/80 border border-cyan-500/30 rounded-full mb-3">
+                        <span class="text-xs font-mono font-bold tracking-widest text-cyan-400 uppercase"><i class="fa-solid fa-sliders mr-1.5"></i> INSTANT QUOTE GENERATOR</span>
+                    </div>
+                    <h2 class="text-3xl font-extrabold sm:text-4xl text-white">Custom Rooflight Specification Builder</h2>
+                    <p class="mt-3 text-slate-400">Adjust parameters below for real-time thermal, weight, and pricing calculations.</p>
                 </div>
 
-                <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl backdrop-blur-md">
+                <div class="bg-slate-950/85 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl backdrop-blur-md">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                        <!-- Left Options Panel -->
                         <div class="lg:col-span-7 space-y-6">
+                            <!-- Dimension Sliders -->
                             <div>
-                                <label class="block font-mono text-xs text-slate-300 uppercase mb-2">1. Rooflight Dimensions (mm)</label>
-                                <div class="grid grid-cols-2 gap-4">
+                                <label class="block font-mono text-xs text-cyan-300 uppercase mb-3 flex justify-between items-center">
+                                    <span>1. Structural Opening Dimensions (mm)</span>
+                                    <span class="text-[10px] text-slate-400 font-normal">Custom Sizes Available</span>
+                                </label>
+                                <div class="space-y-4 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
                                     <div>
-                                        <span class="text-[10px] font-mono text-slate-400 block mb-1">Length (800mm - 3000mm)</span>
+                                        <div class="flex justify-between items-center mb-1 font-mono text-xs">
+                                            <span class="text-slate-400">Length (L)</span>
+                                            <span class="text-cyan-400 font-bold"><span id="length-val">1500</span> mm</span>
+                                        </div>
                                         <input type="range" id="length-range" min="800" max="3000" step="100" value="1500" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
-                                        <div class="text-right font-mono text-xs text-white mt-1"><span id="length-val">1500</span> mm</div>
+                                        <div class="flex justify-between text-[10px] font-mono text-slate-500 mt-1">
+                                            <span>800mm</span>
+                                            <span>1900mm</span>
+                                            <span>3000mm</span>
+                                        </div>
                                     </div>
+
                                     <div>
-                                        <span class="text-[10px] font-mono text-slate-400 block mb-1">Width (600mm - 2000mm)</span>
+                                        <div class="flex justify-between items-center mb-1 font-mono text-xs">
+                                            <span class="text-slate-400">Width (W)</span>
+                                            <span class="text-cyan-400 font-bold"><span id="width-val">1000</span> mm</span>
+                                        </div>
                                         <input type="range" id="width-range" min="600" max="2000" step="100" value="1000" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
-                                        <div class="text-right font-mono text-xs text-white mt-1"><span id="width-val">1000</span> mm</div>
+                                        <div class="flex justify-between text-[10px] font-mono text-slate-500 mt-1">
+                                            <span>600mm</span>
+                                            <span>1300mm</span>
+                                            <span>2000mm</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- Glazing Options -->
                             <div>
-                                <label class="block font-mono text-xs text-slate-300 uppercase mb-2">2. Glazing Package</label>
+                                <label class="block font-mono text-xs text-cyan-300 uppercase mb-3">2. Thermal Glazing Package</label>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <label class="border border-slate-800 rounded-lg p-3 flex items-center justify-between cursor-pointer hover:border-slate-600 transition-colors bg-slate-900/50">
+                                    <label class="border border-slate-800 rounded-xl p-4 flex items-center justify-between cursor-pointer hover:border-cyan-500/50 transition-all bg-slate-900/50">
                                         <div class="flex items-center">
-                                            <input type="radio" name="glazing" value="double" checked class="text-cyan-400 focus:ring-0 mr-3">
+                                            <input type="radio" name="glazing" value="double" checked class="text-cyan-400 focus:ring-0 mr-3 w-4 h-4">
                                             <div>
                                                 <div class="text-sm font-bold text-white">Double Glazed</div>
                                                 <div class="text-[10px] font-mono text-slate-400">1.0 U-Value (Standard)</div>
                                             </div>
                                         </div>
                                     </label>
-                                    <label class="border border-slate-800 rounded-lg p-3 flex items-center justify-between cursor-pointer hover:border-slate-600 transition-colors bg-slate-900/50">
+                                    <label class="border border-slate-800 rounded-xl p-4 flex items-center justify-between cursor-pointer hover:border-cyan-500/50 transition-all bg-slate-900/50">
                                         <div class="flex items-center">
-                                            <input type="radio" name="glazing" value="triple" class="text-cyan-400 focus:ring-0 mr-3">
+                                            <input type="radio" name="glazing" value="triple" class="text-cyan-400 focus:ring-0 mr-3 w-4 h-4">
                                             <div>
                                                 <div class="text-sm font-bold text-white">Triple Glazed</div>
-                                                <div class="text-[10px] font-mono text-slate-400">0.6 U-Value (+£180/m²)</div>
+                                                <div class="text-[10px] font-mono text-cyan-300">0.6 U-Value (Passivhaus)</div>
                                             </div>
                                         </div>
                                     </label>
                                 </div>
                             </div>
 
+                            <!-- Additional Coatings -->
                             <div>
-                                <label class="block font-mono text-xs text-slate-300 uppercase mb-2">3. Additional Features</label>
+                                <label class="block font-mono text-xs text-cyan-300 uppercase mb-3">3. High-Performance Coatings</label>
                                 <div class="space-y-2">
-                                    <label class="border border-slate-800 rounded-lg p-3 flex items-center justify-between cursor-pointer hover:border-slate-600 transition-colors bg-slate-900/50">
-                                        <span class="text-sm text-slate-200">Solar Control Tint Coating</span>
-                                        <input type="checkbox" id="solar-control" class="rounded text-cyan-400 focus:ring-0">
+                                    <label class="border border-slate-800 rounded-xl p-3.5 flex items-center justify-between cursor-pointer hover:border-slate-700 transition-colors bg-slate-900/50">
+                                        <div class="flex items-center space-x-3">
+                                            <i class="fa-solid fa-sun text-amber-400 text-sm"></i>
+                                            <span class="text-sm text-slate-200">Solar Control Blue Tint Coating</span>
+                                        </div>
+                                        <input type="checkbox" id="solar-control" class="rounded text-cyan-400 focus:ring-0 w-4 h-4">
                                     </label>
-                                    <label class="border border-slate-800 rounded-lg p-3 flex items-center justify-between cursor-pointer hover:border-slate-600 transition-colors bg-slate-900/50">
-                                        <span class="text-sm text-slate-200">Easy-Clean Hydrophobic Coating</span>
-                                        <input type="checkbox" id="easy-clean" checked class="rounded text-cyan-400 focus:ring-0">
+                                    <label class="border border-slate-800 rounded-xl p-3.5 flex items-center justify-between cursor-pointer hover:border-slate-700 transition-colors bg-slate-900/50">
+                                        <div class="flex items-center space-x-3">
+                                            <i class="fa-solid fa-droplet text-cyan-400 text-sm"></i>
+                                            <span class="text-sm text-slate-200">Easy-Clean Hydrophobic Coating</span>
+                                        </div>
+                                        <input type="checkbox" id="easy-clean" checked class="rounded text-cyan-400 focus:ring-0 w-4 h-4">
                                     </label>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="lg:col-span-5 bg-slate-900 p-6 rounded-xl border border-slate-800 flex flex-col justify-between">
+                        <!-- Right Calculation Summary Card -->
+                        <div class="lg:col-span-5 bg-slate-900 p-6 rounded-xl border border-slate-800 flex flex-col justify-between shadow-inner">
                             <div>
                                 <div class="border-b border-slate-800 pb-3 mb-4 flex justify-between items-center font-mono text-xs text-slate-400">
                                     <span>SPECIFICATION SUMMARY</span>
-                                    <span class="text-emerald-400"><i class="fa-solid fa-check mr-1"></i> VALIDATED</span>
+                                    <span class="text-emerald-400 flex items-center"><i class="fa-solid fa-check-circle mr-1"></i> VALIDATED</span>
                                 </div>
 
                                 <div class="space-y-3 font-mono text-xs">
-                                    <div class="flex justify-between text-slate-400">
+                                    <div class="flex justify-between text-slate-400 pb-1 border-b border-slate-800/50">
                                         <span>Glazing Area:</span>
                                         <span id="calc-area" class="text-white font-bold">1.50 m²</span>
                                     </div>
-                                    <div class="flex justify-between text-slate-400">
+                                    <div class="flex justify-between text-slate-400 pb-1 border-b border-slate-800/50">
                                         <span>Target U-Value:</span>
-                                        <span id="calc-uvalue" class="text-white font-bold">1.0 W/m²K</span>
+                                        <span id="calc-uvalue" class="text-cyan-400 font-bold">1.0 W/m²K</span>
                                     </div>
-                                    <div class="flex justify-between text-slate-400">
-                                        <span>Estimated Weight:</span>
+                                    <div class="flex justify-between text-slate-400 pb-1 border-b border-slate-800/50">
+                                        <span>Estimated Glass Weight:</span>
                                         <span id="calc-weight" class="text-white font-bold">45 kg</span>
                                     </div>
+                                    <div class="flex justify-between text-slate-400 pb-1 border-b border-slate-800/50">
+                                        <span>Estimated Lead Time:</span>
+                                        <span class="text-white font-bold">7 - 10 Working Days</span>
+                                    </div>
                                     <div class="flex justify-between text-slate-400">
-                                        <span>Lead Time:</span>
-                                        <span class="text-white font-bold">7 - 10 Days</span>
+                                        <span>Warranty Coverage:</span>
+                                        <span class="text-emerald-400 font-bold">10 Year Seal Guarantee</span>
                                     </div>
                                 </div>
 
-                                <div class="mt-8 pt-6 border-t border-slate-800">
-                                    <span class="text-[10px] font-mono text-slate-400 uppercase block">Estimated Base Cost (Excl. VAT)</span>
-                                    <div class="text-4xl font-extrabold text-white mt-1 font-mono">£<span id="calc-price">495</span>.00</div>
+                                <div class="mt-8 pt-6 border-t border-slate-800 bg-slate-950/60 p-4 rounded-xl">
+                                    <span class="text-[10px] font-mono text-slate-400 uppercase block">Estimated Base Price (Excl. VAT)</span>
+                                    <div class="text-4xl font-extrabold text-cyan-400 mt-1 font-mono">£<span id="calc-price">495</span>.00</div>
+                                    <p class="text-[11px] text-slate-400 mt-1">Includes structural perimeter frame & factory seal.</p>
                                 </div>
                             </div>
 
-                            <a href="#contact" class="w-full mt-6 py-3.5 bg-cyan-500 text-slate-950 font-bold text-center rounded-md hover:bg-cyan-400 transition-colors text-sm font-sans block shadow-lg">
-                                Lock in Spec
+                            <!-- Lock in Spec CTA button triggering scroll to contact form -->
+                            <a id="lock-in-spec-btn" href="#contact" class="w-full mt-6 py-4 bg-cyan-500 text-slate-950 font-bold text-center rounded-lg hover:bg-cyan-400 transition-colors text-sm font-sans block shadow-lg shadow-cyan-500/20">
+                                <i class="fa-solid fa-file-signature mr-2"></i> Lock in Spec & Request Official Quote
                             </a>
                         </div>
                     </div>
@@ -338,40 +355,81 @@
             </div>
         </section>
 
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 border-b border-slate-200 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-mono font-bold tracking-widest text-cyan-600 uppercase mb-2 block">PORTFOLIO & PROJECTS</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Architectural Installations</h2>
+                    <p class="mt-4 text-slate-600">Explore real-world structural glazing installations across residential extensions and commercial developments.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="group relative overflow-hidden rounded-2xl bg-slate-900 aspect-video shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Modern Kitchen Extension Skylight" class="object-cover w-full h-full opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent p-6 flex flex-col justify-end">
+                            <span class="text-xs font-mono text-cyan-400">RESIDENTIAL EXTENSION</span>
+                            <h4 class="text-lg font-bold text-white">Contemporary Kitchen Skylight</h4>
+                            <p class="text-xs text-slate-300 mt-1">Frameless flat glass design maximizing natural daylight.</p>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-2xl bg-slate-900 aspect-video shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Frameless Roof Lantern Living Area" class="object-cover w-full h-full opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent p-6 flex flex-col justify-end">
+                            <span class="text-xs font-mono text-cyan-400">OPEN PLAN LIVING</span>
+                            <h4 class="text-lg font-bold text-white">Bespoke Structural Roof Lantern</h4>
+                            <p class="text-xs text-slate-300 mt-1">Pitch ridge rafters engineered for slim sightlines.</p>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-2xl bg-slate-900 aspect-video shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80" alt="Walk-On Roof Terrace Glass" class="object-cover w-full h-full opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent p-6 flex flex-col justify-end">
+                            <span class="text-xs font-mono text-cyan-400">URBAN PODIUM DECK</span>
+                            <h4 class="text-lg font-bold text-white">Walk-On Terrace Glazing</h4>
+                            <p class="text-xs text-slate-300 mt-1">Triple laminated safety glass with anti-slip texture.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Form Section -->
-        <section id="contact" class="py-20 bg-white/80">
+        <section id="contact" class="py-20 bg-slate-100/70 border-b border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <!-- Left Info Panel -->
                     <div class="lg:col-span-5 space-y-6">
-                        <span class="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">GET IN TOUCH</span>
+                        <span class="text-xs font-mono font-bold tracking-widest text-cyan-600 uppercase">DIRECT INQUIRY</span>
                         <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Speak With Our Architectural Team</h2>
                         <p class="text-slate-600 leading-relaxed">Have custom structural requirements or need bespoke CAD models for your build? Send us your project details or architectural drawings.</p>
                         
-                        <div class="space-y-4 pt-4 font-mono text-sm text-slate-700">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-800">
+                        <div class="space-y-4 pt-2 font-mono text-sm text-slate-700">
+                            <div class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                                <div class="w-10 h-10 rounded-lg bg-cyan-50 border border-cyan-200 flex items-center justify-center text-cyan-600 shrink-0">
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
-                                <a href="tel:01603552654" class="hover:text-cyan-600 transition-colors">Call: 01603 552654</a>
+                                <a href="tel:01603552654" class="hover:text-cyan-600 transition-colors font-bold text-slate-900">01603 552654</a>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-800">
+                            <div class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                                <div class="w-10 h-10 rounded-lg bg-cyan-50 border border-cyan-200 flex items-center justify-center text-cyan-600 shrink-0">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
-                                <a href="mailto:info@TheRooflightSpecialists.co.uk" class="hover:text-cyan-600 transition-colors">info@TheRooflightSpecialists.co.uk</a>
+                                <a href="mailto:info@TheRooflightSpecialists.co.uk" class="hover:text-cyan-600 transition-colors text-xs text-slate-800 font-semibold break-all">info@TheRooflightSpecialists.co.uk</a>
                             </div>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600">
+                            <div class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-emerald-200 shadow-sm">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0">
                                     <i class="fa-brands fa-whatsapp text-lg"></i>
                                 </div>
-                                <a href="https://wa.me/447347262213" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">Message us on WhatsApp (+44 7347 262213)</a>
+                                <a href="https://wa.me/447347262213" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors font-bold text-emerald-700">+44 7347 262213</a>
                             </div>
-                            <div class="flex items-start space-x-3 pt-2">
+                            <div class="flex items-start space-x-3 pt-2 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
                                 <div class="w-10 h-10 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-800 shrink-0">
                                     <i class="fa-solid fa-clock"></i>
                                 </div>
                                 <div class="text-xs space-y-1">
-                                    <div class="font-bold text-slate-900">Opening Hours:</div>
+                                    <div class="font-bold text-slate-900">Operating Hours:</div>
                                     <div>Mon – Fri: 09:00 – 17:00</div>
                                     <div class="text-slate-400">Sat – Sun: Closed</div>
                                 </div>
@@ -379,8 +437,17 @@
                         </div>
                     </div>
 
-                    <!-- Web3Forms Form -->
-                    <div class="lg:col-span-7 bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm">
+                    <!-- Web3Forms Form Container -->
+                    <div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-slate-200 shadow-xl">
+                        <!-- Synced Configurator Banner Notification -->
+                        <div id="spec-synced-banner" class="mb-6 p-4 rounded-xl bg-cyan-50 border border-cyan-200 text-cyan-900 font-mono text-xs flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-circle-check text-cyan-600 text-base"></i>
+                                <span>Calculator Spec Synced to Form Payload</span>
+                            </div>
+                            <a href="#calculator" class="btn-quote text-cyan-700 hover:text-cyan-900 font-bold underline">Edit Spec</a>
+                        </div>
+
                         <form id="quote-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
                             <input type="hidden" name="access_key" value="54f5a8d2-0260-4a2e-a69f-4e5798d0ce7f">
                             <input type="hidden" name="subject" value="New Rooflight Specification & Quote Request">
@@ -399,20 +466,34 @@
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block font-mono text-xs text-slate-600 uppercase mb-1">Full Name</label>
-                                    <input type="text" name="Client Name" required class="w-full px-4 py-2.5 rounded-md border border-slate-300 bg-white text-slate-900 focus:outline-none focus:border-slate-600 text-sm">
+                                    <label class="block font-mono text-xs text-slate-700 uppercase mb-1">Full Name *</label>
+                                    <input type="text" name="Client Name" required class="w-full px-4 py-3 rounded-lg border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:border-cyan-500 focus:bg-white text-sm">
                                 </div>
                                 <div>
-                                    <label class="block font-mono text-xs text-slate-600 uppercase mb-1">Email Address</label>
-                                    <input type="email" name="Client Email" required class="w-full px-4 py-2.5 rounded-md border border-slate-300 bg-white text-slate-900 focus:outline-none focus:border-slate-600 text-sm">
+                                    <label class="block font-mono text-xs text-slate-700 uppercase mb-1">Email Address *</label>
+                                    <input type="email" name="Client Email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:border-cyan-500 focus:bg-white text-sm">
                                 </div>
                             </div>
-                            <div>
-                                <label class="block font-mono text-xs text-slate-600 uppercase mb-1">Project Specification Details</label>
-                                <textarea name="Project Details & Notes" rows="4" required class="w-full px-4 py-2.5 rounded-md border border-slate-300 bg-white text-slate-900 focus:outline-none focus:border-slate-600 text-sm" placeholder="Provide dimensions, pitch, or structural requirements..."></textarea>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block font-mono text-xs text-slate-700 uppercase mb-1">Phone Number</label>
+                                    <input type="tel" name="Client Phone" class="w-full px-4 py-3 rounded-lg border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:border-cyan-500 focus:bg-white text-sm">
+                                </div>
+                                <div>
+                                    <label class="block font-mono text-xs text-slate-700 uppercase mb-1">Site Postcode</label>
+                                    <input type="text" name="Site Postcode" class="w-full px-4 py-3 rounded-lg border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:border-cyan-500 focus:bg-white text-sm" placeholder="e.g. NR1 1AA">
+                                </div>
                             </div>
-                            <button type="submit" class="w-full py-3.5 bg-slate-900 text-white font-bold rounded-md hover:bg-slate-800 transition-colors text-sm font-sans shadow-md">
-                                Submit Technical Inquiry
+
+                            <div>
+                                <label class="block font-mono text-xs text-slate-700 uppercase mb-1">Project Specification & Additional Notes</label>
+                                <textarea id="project-details" name="Project Details & Notes" rows="4" class="w-full px-4 py-3 rounded-lg border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:border-cyan-500 focus:bg-white text-sm" placeholder="Include roof pitch, curb details, or installation timeline..."></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-all text-sm font-sans shadow-lg flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-paper-plane text-cyan-400"></i>
+                                <span>Submit Technical Quote Request</span>
                             </button>
                         </form>
                     </div>
@@ -430,28 +511,20 @@
                 <span class="text-cyan-400">Site by ARX. Email: <a href="mailto:website@arx-uk.com" class="underline hover:text-cyan-300 transition-colors">website@arx-uk.com</a></span>
             </div>
             <div class="flex space-x-6">
-                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition-colors">Terms of Spec</a>
-                <a href="#" class="hover:text-white transition-colors">CAD Downloads</a>
+                <a href="#calculator" class="btn-quote hover:text-white transition-colors">Configurator</a>
+                <a href="#gallery" class="hover:text-white transition-colors">Gallery</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
             </div>
         </div>
     </footer>
 
-    <!-- Canvas Animation & Configurator Logic -->
     <script>
-        // Force browser to reset scroll position to top on page reload
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
 
         window.addEventListener('beforeunload', () => {
             window.scrollTo(0, 0);
-        });
-
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-            }, 0);
         });
 
         const canvas = document.getElementById('blueprint-canvas');
@@ -469,9 +542,9 @@
         resizeCanvas();
 
         let angleY = 0.4;
-        const pitchX = 0.42; // Fixed pitch down angle for clear roof light perspective
+        const pitchX = 0.45; // Fixed pitch down angle to view structural roof lantern geometry clearly
 
-        // Rigid Architectural Rooflight Lantern Geometry
+        // Architectural Rooflight Lantern Geometry (14 Vertices, Base Frame, Kerb, Rafters, Apex)
         const vertices = [
             // Outer Base Upstand Kerb (Bottom Frame) [0..3]
             {x: -1.8, y: -0.6, z: -1.1},
@@ -497,40 +570,43 @@
         ];
 
         const edges = [
-            // Base Upstand
+            // Base Upstand Kerb
             [0, 1], [1, 2], [2, 3], [3, 0],
             // Vertical Profile Upstands
             [0, 4], [1, 5], [2, 6], [3, 7],
-            // Inner Glazing Seat
+            // Inner Glazing Seat Frame
             [4, 5], [5, 6], [6, 7], [7, 4],
-            // Eaves Transition
+            // Eaves Transition Members
             [4, 8], [5, 9], [6, 10], [7, 11],
             [8, 9], [9, 10], [10, 11], [11, 8],
-            // Pitch Rafters to Ridge
+            // Pitch Hip Rafters to Ridge
             [8, 12], [11, 12], [9, 13], [10, 13],
             // Top Ridge Beam
             [12, 13]
         ];
 
         function project3D(v, width, height) {
-            // Yaw Rotation (Y-axis turntable)
+            // Yaw Rotation Matrix (Y-axis turntable rotation)
             const cosY = Math.cos(angleY), sinY = Math.sin(angleY);
             const x1 = v.x * cosY - v.z * sinY;
             const z1 = v.z * cosY + v.x * sinY;
 
-            // Pitch Rotation (X-axis tilt)
+            // Pitch Rotation Matrix (X-axis tilt down)
             const cosX = Math.cos(pitchX), sinX = Math.sin(pitchX);
             const y2 = v.y * cosX - z1 * sinX;
+            const z2 = z1 * cosX + v.y * sinX;
 
-            // Orthographic / Parallel projection to prevent depth warping/trapezoidal stretching
-            const scale = 72;
+            // Perspective Division without clipping distortion
+            const fov = 380;
+            const distance = 4.2;
+            const scale = fov / (distance + z2);
 
-            // Center and shift slightly right on desktop
-            const offsetX = width > 768 ? width * 0.14 : 0;
+            // Center and shift slightly right on large viewports
+            const offsetX = width > 768 ? width * 0.12 : 0;
             const projX = (width / 2) + x1 * scale + offsetX;
             const projY = (height / 2) - y2 * scale;
 
-            return { x: projX, y: projY };
+            return { x: projX, y: projY, z: z2 };
         }
 
         function drawBlueprint() {
@@ -541,7 +617,7 @@
             const w = canvas.width;
             const h = canvas.height;
 
-            angleY += 0.005; // Smooth slow turntable rotation
+            angleY += 0.005; // Continuous rotation
 
             const projected = vertices.map(v => project3D(v, w, h));
 
@@ -558,7 +634,7 @@
                 ctx.stroke();
             });
 
-            // Draw Vertices
+            // Draw Vertex Nodes
             ctx.fillStyle = '#7dd3fc';
             projected.forEach((p, idx) => {
                 ctx.beginPath();
@@ -568,11 +644,11 @@
                 if (idx === 12 || idx === 1) {
                     ctx.font = '10px Fira Code';
                     ctx.fillStyle = '#38bdf8';
-                    ctx.fillText(`CAD_NODE_${idx} (${Math.round(p.x)}, ${Math.round(p.y)})`, p.x + 8, p.y - 6);
+                    ctx.fillText(`CAD_P${idx} (${Math.round(p.x)}, ${Math.round(p.y)})`, p.x + 8, p.y - 6);
                 }
             });
 
-            // Decorative Vertical Drop Reference Lines for Roof Kerb
+            // Vertical Drop Reference Lines for Roof Kerb
             ctx.shadowBlur = 0;
             ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
             ctx.setLineDash([3, 3]);
@@ -589,16 +665,17 @@
 
         drawBlueprint();
 
-        // Scroll interaction for hero banner
         const heroContainer = document.getElementById('hero-container');
         const heroTitle = document.getElementById('hero-title');
         const heroSubtext = document.getElementById('hero-subtext');
+        const heroCtaButtons = document.getElementById('hero-cta-buttons');
         const scrollPrompt = document.getElementById('scroll-prompt');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 80) {
                 heroContainer.classList.add('shrunk');
                 if (heroSubtext) heroSubtext.classList.add('opacity-0', 'hidden');
+                if (heroCtaButtons) heroCtaButtons.classList.add('opacity-0', 'hidden');
                 if (scrollPrompt) scrollPrompt.classList.add('opacity-0', 'hidden');
                 if (heroTitle) {
                     heroTitle.classList.remove('text-4xl', 'sm:text-6xl');
@@ -607,6 +684,7 @@
             } else {
                 heroContainer.classList.remove('shrunk');
                 if (heroSubtext) heroSubtext.classList.remove('opacity-0', 'hidden');
+                if (heroCtaButtons) heroCtaButtons.classList.remove('opacity-0', 'hidden');
                 if (scrollPrompt) scrollPrompt.classList.remove('opacity-0', 'hidden');
                 if (heroTitle) {
                     heroTitle.classList.remove('text-2xl', 'sm:text-3xl');
@@ -614,6 +692,9 @@
                 }
             }
         });
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
 
         // Mobile drawer navigation
         const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -624,8 +705,8 @@
             });
         }
 
-        // Smooth scroll targeting #calculator for all instant quote buttons
-        document.querySelectorAll('a[href="#calculator"]').forEach(button => {
+        // Smooth scroll targeting #calculator for all instant quote buttons & calculator anchor links
+        document.querySelectorAll('a[href="#calculator"], .btn-quote').forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
                 
@@ -635,7 +716,7 @@
 
                 const calculatorSection = document.getElementById('calculator');
                 if (calculatorSection) {
-                    calculatorSection.scrollIntoView({ behavior: 'smooth' });
+                    calculatorSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
@@ -664,16 +745,17 @@
         const formUvalue = document.getElementById('form-uvalue');
         const formWeight = document.getElementById('form-weight');
         const formPrice = document.getElementById('form-price');
+        const projectDetailsTextarea = document.getElementById('project-details');
 
         function updateCalculator() {
             const length = parseInt(lengthRange.value);
             const width = parseInt(widthRange.value);
             
-            lengthVal.textContent = length;
-            widthVal.textContent = width;
+            if (lengthVal) lengthVal.textContent = length;
+            if (widthVal) widthVal.textContent = width;
 
             const area = (length * width) / 1000000;
-            calcArea.textContent = area.toFixed(2) + ' m²';
+            if (calcArea) calcArea.textContent = area.toFixed(2) + ' m²';
 
             const glazingType = document.querySelector('input[name="glazing"]:checked').value;
             const isTriple = glazingType === 'triple';
@@ -681,8 +763,8 @@
             let uValue = isTriple ? '0.6 W/m²K' : '1.0 W/m²K';
             let weight = Math.round(area * (isTriple ? 42 : 30)) + ' kg';
 
-            calcUValue.textContent = uValue;
-            calcWeight.textContent = weight;
+            if (calcUValue) calcUValue.textContent = uValue;
+            if (calcWeight) calcWeight.textContent = weight;
 
             let baseRate = isTriple ? 380 : 260;
             let solarSelected = solarCheckbox && solarCheckbox.checked;
@@ -692,8 +774,9 @@
             if (easyCleanSelected) baseRate += 15;
 
             let totalPrice = Math.round(area * baseRate + 105);
-            calcPrice.textContent = totalPrice;
+            if (calcPrice) calcPrice.textContent = totalPrice;
 
+            // Sync hidden Web3Forms payload inputs
             if (formLength) formLength.value = length + ' mm';
             if (formWidth) formWidth.value = width + ' mm';
             if (formGlazing) formGlazing.value = isTriple ? 'Triple Glazed (0.6 U-Value)' : 'Double Glazed (1.0 U-Value)';
@@ -713,6 +796,20 @@
             if (easyCleanCheckbox) easyCleanCheckbox.addEventListener('change', updateCalculator);
 
             updateCalculator();
+        }
+
+        const lockInBtn = document.getElementById('lock-in-spec-btn');
+        if (lockInBtn) {
+            lockInBtn.addEventListener('click', (e) => {
+                const length = lengthRange.value;
+                const width = widthRange.value;
+                const glazingType = document.querySelector('input[name="glazing"]:checked').value;
+                const price = calcPrice.textContent;
+
+                if (projectDetailsTextarea) {
+                    projectDetailsTextarea.value = `[CONFIGURATOR SPECIFICATION]:\nSize: ${length}mm x ${width}mm\nGlazing: ${glazingType.toUpperCase()} GLAZED\nEstimated Price: £${price}.00 (Excl. VAT)\n\nAdditional Requirements / Site Notes: `;
+                }
+            });
         }
     </script>
 </body>
