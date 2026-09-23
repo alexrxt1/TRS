@@ -417,21 +417,38 @@
                         </div>
                     </div>
 
+                    <!-- Web3Forms Powered Form -->
                     <div class="lg:col-span-7 bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm">
-                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you for your quote request. Our technical team will be in touch shortly.');">
+                        <form id="quote-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                            <!-- Replace with your actual Web3Forms Access Key -->
+                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                            <input type="hidden" name="subject" value="New Rooflight Specification & Quote Request">
+                            <input type="hidden" name="from_name" value="The Rooflight Specialists Website">
+                            
+                            <!-- Hidden fields updated by JS calculator -->
+                            <input type="hidden" name="Length (mm)" id="form-length">
+                            <input type="hidden" name="Width (mm)" id="form-width">
+                            <input type="hidden" name="Glazing Package" id="form-glazing">
+                            <input type="hidden" name="Solar Control" id="form-solar">
+                            <input type="hidden" name="Easy-Clean Coating" id="form-easyclean">
+                            <input type="hidden" name="Total Glazing Area" id="form-area">
+                            <input type="hidden" name="Target U-Value" id="form-uvalue">
+                            <input type="hidden" name="Estimated Weight" id="form-weight">
+                            <input type="hidden" name="Estimated Price (Excl. VAT)" id="form-price">
+
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block font-mono text-xs text-slate-600 uppercase mb-1">Full Name</label>
-                                    <input type="text" required class="w-full px-4 py-2.5 rounded-md border border-slate-300 bg-white text-slate-900 focus:outline-none focus:border-slate-600 text-sm">
+                                    <input type="text" name="Client Name" required class="w-full px-4 py-2.5 rounded-md border border-slate-300 bg-white text-slate-900 focus:outline-none focus:border-slate-600 text-sm">
                                 </div>
                                 <div>
                                     <label class="block font-mono text-xs text-slate-600 uppercase mb-1">Email Address</label>
-                                    <input type="email" required class="w-full px-4 py-2.5 rounded-md border border-slate-300 bg-white text-slate-900 focus:outline-none focus:border-slate-600 text-sm">
+                                    <input type="email" name="Client Email" required class="w-full px-4 py-2.5 rounded-md border border-slate-300 bg-white text-slate-900 focus:outline-none focus:border-slate-600 text-sm">
                                 </div>
                             </div>
                             <div>
                                 <label class="block font-mono text-xs text-slate-600 uppercase mb-1">Project Specification Details</label>
-                                <textarea rows="4" required class="w-full px-4 py-2.5 rounded-md border border-slate-300 bg-white text-slate-900 focus:outline-none focus:border-slate-600 text-sm" placeholder="Provide dimensions, pitch, or structural requirements..."></textarea>
+                                <textarea name="Project Details & Notes" rows="4" required class="w-full px-4 py-2.5 rounded-md border border-slate-300 bg-white text-slate-900 focus:outline-none focus:border-slate-600 text-sm" placeholder="Provide dimensions, pitch, or structural requirements..."></textarea>
                             </div>
                             <button type="submit" class="w-full py-3.5 bg-slate-900 text-white font-bold rounded-md hover:bg-slate-800 transition-colors text-sm font-sans shadow-md">
                                 Submit Technical Inquiry
@@ -458,7 +475,7 @@
         </div>
     </footer>
 
-    <!-- Interactive Calculator Script & Mobile Navigation Handler -->
+    <!-- Interactive Calculator Script & Web3Forms Data Sync -->
     <script>
         // Mobile Navigation Toggle
         const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -484,6 +501,17 @@
         const solarCheckbox = document.getElementById('solar-control');
         const easyCleanCheckbox = document.getElementById('easy-clean');
 
+        // Form Hidden Field References
+        const formLength = document.getElementById('form-length');
+        const formWidth = document.getElementById('form-width');
+        const formGlazing = document.getElementById('form-glazing');
+        const formSolar = document.getElementById('form-solar');
+        const formEasyclean = document.getElementById('form-easyclean');
+        const formArea = document.getElementById('form-area');
+        const formUvalue = document.getElementById('form-uvalue');
+        const formWeight = document.getElementById('form-weight');
+        const formPrice = document.getElementById('form-price');
+
         function updateCalculator() {
             const length = parseInt(lengthRange.value);
             const width = parseInt(widthRange.value);
@@ -494,24 +522,36 @@
             const area = (length * width) / 1000000;
             calcArea.textContent = area.toFixed(2) + ' m²';
 
-            const isTriple = document.querySelector('input[name="glazing"]:checked').value === 'triple';
+            const glazingType = document.querySelector('input[name="glazing"]:checked').value;
+            const isTriple = glazingType === 'triple';
             
-            // U-Value & Weight Calculations
-            if (isTriple) {
-                calcUValue.textContent = '0.6 W/m²K';
-                calcWeight.textContent = Math.round(area * 42) + ' kg';
-            } else {
-                calcUValue.textContent = '1.0 W/m²K';
-                calcWeight.textContent = Math.round(area * 30) + ' kg';
-            }
+            let uValue = isTriple ? '0.6 W/m²K' : '1.0 W/m²K';
+            let weight = Math.round(area * (isTriple ? 42 : 30)) + ' kg';
+
+            calcUValue.textContent = uValue;
+            calcWeight.textContent = weight;
 
             // Price Estimation Formula
             let baseRate = isTriple ? 380 : 260; // Base per m2
-            if (solarCheckbox && solarCheckbox.checked) baseRate += 35;
-            if (easyCleanCheckbox && easyCleanCheckbox.checked) baseRate += 15;
+            let solarSelected = solarCheckbox && solarCheckbox.checked;
+            let easyCleanSelected = easyCleanCheckbox && easyCleanCheckbox.checked;
+
+            if (solarSelected) baseRate += 35;
+            if (easyCleanSelected) baseRate += 15;
 
             let totalPrice = Math.round(area * baseRate + 105); // Base fixed hardware charge
             calcPrice.textContent = totalPrice;
+
+            // Sync values to Web3Forms hidden inputs
+            if (formLength) formLength.value = length + ' mm';
+            if (formWidth) formWidth.value = width + ' mm';
+            if (formGlazing) formGlazing.value = isTriple ? 'Triple Glazed (0.6 U-Value)' : 'Double Glazed (1.0 U-Value)';
+            if (formSolar) formSolar.value = solarSelected ? 'Yes' : 'No';
+            if (formEasyclean) formEasyclean.value = easyCleanSelected ? 'Yes' : 'No';
+            if (formArea) formArea.value = area.toFixed(2) + ' m²';
+            if (formUvalue) formUvalue.value = uValue;
+            if (formWeight) formWeight.value = weight;
+            if (formPrice) formPrice.value = '£' + totalPrice + '.00';
         }
 
         if (lengthRange && widthRange) {
