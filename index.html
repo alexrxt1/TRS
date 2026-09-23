@@ -40,7 +40,6 @@
     </script>
 
     <style>
-        /* Modern White/Light Blueprint Grid Background */
         .blueprint-bg {
             background-color: #fafbfd;
             background-image: 
@@ -61,7 +60,6 @@
             background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
         }
 
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -79,12 +77,10 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans blueprint-bg antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Sticky Navigation Bar -->
+    <!-- Header Navigation -->
     <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                
-                <!-- Logo & Brand Name -->
                 <a href="#" class="flex items-center space-x-3 group">
                     <div class="bg-slate-800 p-2 rounded-lg border border-slate-700 shadow-inner group-hover:border-slate-500 transition-colors flex items-center justify-center overflow-hidden">
                         <img 
@@ -100,21 +96,18 @@
                     </div>
                 </a>
 
-                <!-- Desktop Navigation Links -->
                 <nav class="hidden md:flex space-x-8 text-sm font-medium">
                     <a href="#calculator" class="text-slate-300 hover:text-white transition-colors py-1 hover:border-b-2 hover:border-white">Spec Calculator</a>
                     <a href="#gallery" class="text-slate-300 hover:text-white transition-colors py-1 hover:border-b-2 hover:border-white">Architectural Gallery</a>
                     <a href="#contact" class="text-slate-300 hover:text-white transition-colors py-1 hover:border-b-2 hover:border-white">Contact</a>
                 </nav>
 
-                <!-- Action Button -->
                 <div class="hidden sm:flex items-center space-x-4">
                     <a href="#calculator" class="inline-flex items-center justify-center px-4 py-2.5 border border-slate-600 text-xs font-mono font-semibold rounded-md text-white bg-slate-800 hover:bg-slate-700 hover:border-slate-400 transition-all shadow-sm">
                         <i class="fa-solid fa-calculator mr-2 text-slate-400"></i> GET INSTANT QUOTE
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="p-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none">
                         <i class="fa-solid fa-bars text-xl"></i>
@@ -123,7 +116,6 @@
             </div>
         </div>
 
-        <!-- Mobile Dropdown Menu -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-slate-900 px-4 pt-3 pb-6 space-y-3 font-mono text-sm">
             <a href="#calculator" class="block text-slate-300 hover:text-white py-2">Spec Calculator</a>
             <a href="#gallery" class="block text-slate-300 hover:text-white py-2">Architectural Gallery</a>
@@ -139,8 +131,6 @@
         <section class="relative py-20 lg:py-28 overflow-hidden border-b border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    
-                    <!-- Hero Content -->
                     <div class="lg:col-span-7 space-y-6">
                         <div class="inline-flex items-center px-3 py-1.5 rounded border border-slate-300 bg-white shadow-sm font-mono text-xs text-slate-600">
                             <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
@@ -156,7 +146,6 @@
                             Delivering frameless visual clarity, structural integrity, and industry-leading thermal efficiency ($U = 0.6 \text{ W/m}^2\text{K}$) for high-end residential and commercial architecture.
                         </p>
 
-                        <!-- Key Spec Badges -->
                         <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg font-mono text-xs">
                             <div class="bg-white p-3 rounded border border-slate-200 shadow-sm text-center">
                                 <span class="block text-slate-400 text-[10px] uppercase tracking-wider">U-Value Down To</span>
@@ -172,7 +161,6 @@
                             </div>
                         </div>
 
-                        <!-- Hero Action Buttons -->
                         <div class="flex flex-col sm:flex-row gap-4 pt-4">
                             <a href="#calculator" class="inline-flex justify-center items-center px-6 py-3.5 border border-slate-900 text-sm font-semibold rounded-md text-white bg-slate-900 hover:bg-slate-800 transition-all shadow-md">
                                 <i class="fa-solid fa-sliders mr-2"></i> Configure Specification
@@ -183,16 +171,13 @@
                         </div>
                     </div>
 
-                    <!-- Hero Visual Graphic / Technical Schematic -->
                     <div class="lg:col-span-5">
                         <div class="relative bg-slate-900 rounded-xl p-6 shadow-2xl border border-slate-800 blueprint-dark-bg text-white">
-                            <!-- Technical Badge Header -->
                             <div class="flex justify-between items-center border-b border-slate-800 pb-3 mb-6 font-mono text-xs text-slate-400">
                                 <span><i class="fa-solid fa-layer-group text-slate-400 mr-1.5"></i> CAD_SPEC_MODEL_RL-90</span>
                                 <span class="text-emerald-400 font-semibold">100% WATERPROOF PASS</span>
                             </div>
 
-                            <!-- Interactive Schematic Graphic -->
                             <div class="relative h-64 sm:h-80 flex items-center justify-center border border-dashed border-slate-700/60 rounded-lg p-4 bg-slate-950/40">
                                 <svg class="w-full h-full max-h-52 text-white fill-current opacity-90 drop-shadow-[0_0_12px_rgba(255,255,255,0.2)]" viewBox="0 0 600 280">
                                     <polygon points="120,116 230,116 170,16 60,16" />
@@ -215,22 +200,19 @@
                                 </div>
                             </div>
 
-                            <!-- Footer Spec Bar -->
                             <div class="mt-4 pt-3 border-t border-slate-800 flex justify-between font-mono text-[11px] text-slate-400">
                                 <div>STRUCTURAL: Toughened Outer</div>
                                 <div>FRAME: RAL 7016 Slate</div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- Interactive Specification Calculator -->
+        <!-- Interactive Calculator -->
         <section id="calculator" class="py-20 bg-slate-900 text-white blueprint-dark-bg border-b border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
                 <div class="text-center max-w-3xl mx-auto mb-12">
                     <span class="text-xs font-mono font-bold tracking-widest text-slate-400 uppercase">INTERACTIVE CALCULATOR</span>
                     <h2 class="text-3xl font-extrabold sm:text-4xl text-white mt-2">Custom Specification & Quote Builder</h2>
@@ -239,11 +221,7 @@
 
                 <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl backdrop-blur-md">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-                        
-                        <!-- Form Inputs -->
                         <div class="lg:col-span-7 space-y-6">
-                            
-                            <!-- Dimensions -->
                             <div>
                                 <label class="block font-mono text-xs text-slate-300 uppercase mb-2">1. Rooflight Dimensions (mm)</label>
                                 <div class="grid grid-cols-2 gap-4">
@@ -260,7 +238,6 @@
                                 </div>
                             </div>
 
-                            <!-- Glazing Specification -->
                             <div>
                                 <label class="block font-mono text-xs text-slate-300 uppercase mb-2">2. Glazing Package</label>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -285,7 +262,6 @@
                                 </div>
                             </div>
 
-                            <!-- Extras -->
                             <div>
                                 <label class="block font-mono text-xs text-slate-300 uppercase mb-2">3. Additional Features</label>
                                 <div class="space-y-2">
@@ -299,10 +275,8 @@
                                     </label>
                                 </div>
                             </div>
-
                         </div>
 
-                        <!-- Calculation Output -->
                         <div class="lg:col-span-5 bg-slate-900 p-6 rounded-xl border border-slate-800 flex flex-col justify-between">
                             <div>
                                 <div class="border-b border-slate-800 pb-3 mb-4 flex justify-between items-center font-mono text-xs text-slate-400">
@@ -339,17 +313,14 @@
                                 Lock In Spec & Request Drawing
                             </a>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- Architectural Gallery -->
+        <!-- Gallery -->
         <section id="gallery" class="py-20 border-b border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase mb-2">PORTFOLIO</h2>
                     <p class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Architectural Inspirations</p>
@@ -381,15 +352,13 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact Form Section -->
         <section id="contact" class="py-20 bg-white/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    
                     <div class="lg:col-span-5 space-y-6">
                         <span class="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">GET IN TOUCH</span>
                         <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Speak With Our Architectural Team</h2>
@@ -417,15 +386,15 @@
                         </div>
                     </div>
 
-                    <!-- Web3Forms Powered Form -->
+                    <!-- Web3Forms Form -->
                     <div class="lg:col-span-7 bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm">
                         <form id="quote-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                            <!-- Replace with your actual Web3Forms Access Key -->
-                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                            <!-- Web3Forms Access Key -->
+                            <input type="hidden" name="access_key" value="54f5a8d2-0260-4a2e-a69f-4e5798d0ce7f">
                             <input type="hidden" name="subject" value="New Rooflight Specification & Quote Request">
                             <input type="hidden" name="from_name" value="The Rooflight Specialists Website">
                             
-                            <!-- Hidden fields updated by JS calculator -->
+                            <!-- Dynamic hidden fields synced from live calculator -->
                             <input type="hidden" name="Length (mm)" id="form-length">
                             <input type="hidden" name="Width (mm)" id="form-width">
                             <input type="hidden" name="Glazing Package" id="form-glazing">
@@ -455,13 +424,11 @@
                             </button>
                         </form>
                     </div>
-
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 font-mono text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div>
@@ -475,9 +442,8 @@
         </div>
     </footer>
 
-    <!-- Interactive Calculator Script & Web3Forms Data Sync -->
+    <!-- JavaScript Logic -->
     <script>
-        // Mobile Navigation Toggle
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileBtn && mobileMenu) {
@@ -486,7 +452,6 @@
             });
         }
 
-        // Live Calculator Logic
         const lengthRange = document.getElementById('length-range');
         const widthRange = document.getElementById('width-range');
         const lengthVal = document.getElementById('length-val');
@@ -501,7 +466,6 @@
         const solarCheckbox = document.getElementById('solar-control');
         const easyCleanCheckbox = document.getElementById('easy-clean');
 
-        // Form Hidden Field References
         const formLength = document.getElementById('form-length');
         const formWidth = document.getElementById('form-width');
         const formGlazing = document.getElementById('form-glazing');
@@ -531,18 +495,16 @@
             calcUValue.textContent = uValue;
             calcWeight.textContent = weight;
 
-            // Price Estimation Formula
-            let baseRate = isTriple ? 380 : 260; // Base per m2
+            let baseRate = isTriple ? 380 : 260;
             let solarSelected = solarCheckbox && solarCheckbox.checked;
             let easyCleanSelected = easyCleanCheckbox && easyCleanCheckbox.checked;
 
             if (solarSelected) baseRate += 35;
             if (easyCleanSelected) baseRate += 15;
 
-            let totalPrice = Math.round(area * baseRate + 105); // Base fixed hardware charge
+            let totalPrice = Math.round(area * baseRate + 105);
             calcPrice.textContent = totalPrice;
 
-            // Sync values to Web3Forms hidden inputs
             if (formLength) formLength.value = length + ' mm';
             if (formWidth) formWidth.value = width + ' mm';
             if (formGlazing) formGlazing.value = isTriple ? 'Triple Glazed (0.6 U-Value)' : 'Double Glazed (1.0 U-Value)';
@@ -561,7 +523,6 @@
             if (solarCheckbox) solarCheckbox.addEventListener('change', updateCalculator);
             if (easyCleanCheckbox) easyCleanCheckbox.addEventListener('change', updateCalculator);
 
-            // Initial computation on load
             updateCalculator();
         }
     </script>
