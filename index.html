@@ -60,14 +60,23 @@
             background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
         }
 
-        /* Scroll-driven Hero Banner Morphing */
+        /* Hero Container & Canvas Rules */
         #hero-container {
+            min-height: 500px;
             height: 85vh;
             transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         #hero-container.shrunk {
             height: 280px;
+            min-height: 280px;
+        }
+
+        #blueprint-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
         }
 
         ::-webkit-scrollbar {
@@ -113,7 +122,7 @@
                 </nav>
 
                 <div class="hidden sm:flex items-center space-x-4">
-                    <a href="#calculator" class="inline-flex items-center justify-center px-4 py-2.5 border border-slate-600 text-xs font-mono font-semibold rounded-md text-white bg-slate-800 hover:bg-slate-700 hover:border-slate-400 transition-all shadow-sm">
+                    <a href="#calculator" class="btn-quote inline-flex items-center justify-center px-4 py-2.5 border border-slate-600 text-xs font-mono font-semibold rounded-md text-white bg-slate-800 hover:bg-slate-700 hover:border-slate-400 transition-all shadow-sm">
                         <i class="fa-solid fa-calculator mr-2 text-slate-400"></i> GET INSTANT QUOTE
                     </a>
                 </div>
@@ -130,7 +139,7 @@
             <a href="#gallery" class="block text-slate-300 hover:text-white py-2">Architectural Gallery</a>
             <a href="#calculator" class="block text-slate-300 hover:text-white py-2">Spec Calculator</a>
             <a href="#contact" class="block text-slate-300 hover:text-white py-2">Contact</a>
-            <a href="#calculator" class="block w-full text-center px-4 py-2.5 border border-slate-600 text-xs font-semibold rounded-md text-white bg-slate-800 hover:bg-slate-700">
+            <a href="#calculator" class="btn-quote block w-full text-center px-4 py-2.5 border border-slate-600 text-xs font-semibold rounded-md text-white bg-slate-800 hover:bg-slate-700">
                 GET INSTANT QUOTE
             </a>
         </div>
@@ -152,7 +161,7 @@
             </div>
 
             <!-- Content Container -->
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-between py-12">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-between py-12 pointer-events-auto">
                 <div class="pt-4">
                     <div class="inline-flex items-center px-3 py-1.5 rounded border border-cyan-500/30 bg-slate-900/80 backdrop-blur-md shadow-sm font-mono text-xs text-cyan-300">
                         <span class="w-2 h-2 rounded-full bg-cyan-400 mr-2 animate-ping"></span>
@@ -215,7 +224,7 @@
             </div>
         </section>
 
-        <!-- Interactive Configurator -->
+        <!-- Configurator / Calculator Section -->
         <section id="calculator" class="py-20 bg-slate-900 text-white blueprint-dark-bg border-b border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
@@ -323,7 +332,7 @@
             </div>
         </section>
 
-        <!-- Contact Form Section (Get In Touch) -->
+        <!-- Contact Form Section -->
         <section id="contact" class="py-20 bg-white/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -357,12 +366,11 @@
                     <!-- Web3Forms Form -->
                     <div class="lg:col-span-7 bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm">
                         <form id="quote-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                            <!-- Web3Forms Access Key -->
                             <input type="hidden" name="access_key" value="54f5a8d2-0260-4a2e-a69f-4e5798d0ce7f">
                             <input type="hidden" name="subject" value="New Rooflight Specification & Quote Request">
                             <input type="hidden" name="from_name" value="The Rooflight Specialists Website">
                             
-                            <!-- Dynamic hidden fields synced from live calculator -->
+                            <!-- Synced Hidden Calculator Payload -->
                             <input type="hidden" name="Length (mm)" id="form-length">
                             <input type="hidden" name="Width (mm)" id="form-width">
                             <input type="hidden" name="Glazing Package" id="form-glazing">
@@ -410,89 +418,76 @@
         </div>
     </footer>
 
-    <!-- JavaScript Canvas 3D Blueprint & Page Logic -->
+    <!-- Canvas Animation & Configurator Logic -->
     <script>
-        // 3D Canvas Wireframe Blueprint Animation Engine
         const canvas = document.getElementById('blueprint-canvas');
         const ctx = canvas.getContext('2d');
 
         function resizeCanvas() {
-            canvas.width = canvas.parentElement.clientWidth;
-            canvas.height = canvas.parentElement.clientHeight;
+            if (canvas && canvas.parentElement) {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+            }
         }
+
         window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('load', resizeCanvas);
         resizeCanvas();
 
         let angleY = 0;
         let angleX = 0.35;
 
-        // 3D Rooflight Pyramid/Lantern Vertices
+        // Rooflight Geometry Vertices
         const vertices = [
-            // Base frame (x, y, z)
             {x: -1.6, y: -0.4, z: -1.0},
             {x:  1.6, y: -0.4, z: -1.0},
             {x:  1.6, y: -0.4, z:  1.0},
             {x: -1.6, y: -0.4, z:  1.0},
-            // Inner Glazing Lip
             {x: -1.4, y: -0.3, z: -0.8},
             {x:  1.4, y: -0.3, z: -0.8},
             {x:  1.4, y: -0.3, z:  0.8},
             {x: -1.4, y: -0.3, z:  0.8},
-            // Lantern Apex Ridge Line
             {x: -0.8, y:  0.7, z:  0.0},
             {x:  0.8, y:  0.7, z:  0.0}
         ];
 
-        // Structural Wireframe Edges
         const edges = [
-            // Outer Frame
             [0, 1], [1, 2], [2, 3], [3, 0],
-            // Inner Lip
             [4, 5], [5, 6], [6, 7], [7, 4],
-            // Frame Connections
             [0, 4], [1, 5], [2, 6], [3, 7],
-            // Glass Ridge Facets
             [4, 8], [7, 8], [5, 9], [6, 9],
-            // Top Ridge
             [8, 9]
         ];
 
         function project(vertex, width, height) {
-            // Rotate around Y
-            let cosY = Math.cos(angleY);
-            let sinY = Math.sin(angleY);
+            let cosY = Math.cos(angleY), sinY = Math.sin(angleY);
             let x1 = vertex.x * cosY - vertex.z * sinY;
             let z1 = vertex.z * cosY + vertex.x * sinY;
 
-            // Rotate around X
-            let cosX = Math.cos(angleX);
-            let sinX = Math.sin(angleX);
+            let cosX = Math.cos(angleX), sinX = Math.sin(angleX);
             let y2 = vertex.y * cosX - z1 * sinX;
             let z2 = z1 * cosX + vertex.y * sinX;
 
-            // Perspective Projection
-            let fov = 280;
-            let distance = 3.5;
-            let scale = fov / (distance + z2);
+            let scale = 280 / (3.5 + z2);
 
-            let projX = (width / 2) + x1 * scale + (width > 768 ? 200 : 0);
+            let projX = (width / 2) + x1 * scale + (width > 768 ? 180 : 0);
             let projY = (height / 2) - y2 * scale;
 
             return { x: projX, y: projY, z: z2 };
         }
 
         function drawBlueprint() {
+            if (!canvas.width || !canvas.height) resizeCanvas();
+
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             const w = canvas.width;
             const h = canvas.height;
 
-            // Rotate continuously
             angleY += 0.008;
 
             const projected = vertices.map(v => project(v, w, h));
 
-            // Draw glowing 3D wireframe edges
             ctx.shadowBlur = 8;
             ctx.shadowColor = '#38bdf8';
             ctx.strokeStyle = '#38bdf8';
@@ -505,7 +500,6 @@
                 ctx.stroke();
             });
 
-            // Draw Blueprint Node Points & CAD Dimensions
             ctx.fillStyle = '#7dd3fc';
             projected.forEach((p, idx) => {
                 ctx.beginPath();
@@ -519,7 +513,6 @@
                 }
             });
 
-            // Dynamic Blueprint Dimension Lines
             ctx.shadowBlur = 0;
             ctx.strokeStyle = 'rgba(56, 189, 248, 0.3)';
             ctx.setLineDash([4, 4]);
@@ -536,7 +529,7 @@
 
         drawBlueprint();
 
-        // Scroll interaction for shrinking hero banner
+        // Scroll interaction for hero banner
         const heroContainer = document.getElementById('hero-container');
         const heroTitle = document.getElementById('hero-title');
         const heroSubtext = document.getElementById('hero-subtext');
@@ -562,7 +555,7 @@
             }
         });
 
-        // Mobile menu toggle
+        // Mobile drawer navigation
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileBtn && mobileMenu) {
@@ -571,7 +564,23 @@
             });
         }
 
-        // Live calculator updates
+        // Smooth scroll to Configurator
+        document.querySelectorAll('a[href="#calculator"]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+
+                const calculatorSection = document.getElementById('calculator');
+                if (calculatorSection) {
+                    calculatorSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Live calculator binding
         const lengthRange = document.getElementById('length-range');
         const widthRange = document.getElementById('width-range');
         const lengthVal = document.getElementById('length-val');
